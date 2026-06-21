@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portable-context-protocol.org/schema/v1/profile.schema.json",
+  "title": "PCP profile (v1)",
+  "description": "The distilled 'who you are' bundle (PCP Layer 1).",
+  "type": "object",
+  "required": ["schema_version"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "name": { "type": "string" },
+    "profession": { "type": "string" },
+    "primary_focus": { "type": "string" },
+    "summary": { "type": "string", "description": "Distilled prose overview (Markdown allowed)." },
+    "domain_expertise": { "type": "array", "items": { "type": "string" } },
+    "values": { "type": "array", "items": { "type": "string" } },
+    "communication_style": { "type": "string" },
+    "working_style": { "type": "string" },
+    "tools_and_workflows": { "type": "string" },
+    "how_interacts_with_ai": { "type": "string" },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced custom fields (reverse-DNS or vendor prefix). Readers MUST preserve unknown keys."
+    }
+  }
+}

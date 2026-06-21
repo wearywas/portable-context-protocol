@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portable-context-protocol.org/schema/v1/timeline-event.schema.json",
+  "title": "PCP timeline_event (v1)",
+  "description": "A dated event in the person's life.",
+  "type": "object",
+  "required": ["id", "date", "summary"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string" },
+    "date": {
+      "type": "string",
+      "description": "ISO 8601; partial dates allowed (YYYY, YYYY-MM, or YYYY-MM-DD).",
+      "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$"
+    },
+    "summary": { "type": "string" },
+    "category": { "enum": ["job", "move", "milestone", "publication", "relationship", "other"] },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "source": { "enum": ["user_stated", "inferred", "imported", "other"] },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced custom fields. Readers MUST preserve unknown keys."
+    }
+  }
+}

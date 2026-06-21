@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "kind": "pcp.full-archive",
+  "generated_at": "2026-01-15T09:00:00Z",
+  "note": "FICTIONAL example persona (Ada Lumen). Illustrates PCP structure with no real personal data.",
+  "profile": {
+    "schema_version": "1.0",
+    "generated_at": "2026-01-15T09:00:00Z",
+    "name": "Ada Lumen",
+    "profession": "Freelance data-visualization developer & science writer",
+    "primary_focus": "Building Tidewatch, an open-source dashboard for community ocean-sensor networks",
+    "summary": "Ada is a freelance data-visualization developer and science writer who came to the field from science (a partly-finished marine-biology PhD). Most paid work is dashboards for environmental nonprofits; the main personal project is Tidewatch, an open-source tool for community ocean-sensor data. She works in protected morning deep-work blocks, ships small, and tests against real datasets before generalizing.",
+    "domain_expertise": ["Data visualization (D3, Svelte)", "Oceanography fundamentals", "Technical & science writing", "Freelance client delivery"],
+    "values": ["Open-source by default", "Scientific rigor over hype", "Accessibility", "A calm, sustainable pace"],
+    "communication_style": "Concise; prefers concrete examples over abstraction; allergic to hedging.",
+    "working_style": "Protects mornings for deep work; ships small and often; validates against real data before generalizing.",
+    "tools_and_workflows": "VS Code, Svelte, D3.js, Python/pandas; Git-first; small dependency footprints.",
+    "how_interacts_with_ai": "Treats AI as a pair-programmer; wants assumptions stated and sources cited; dislikes filler and over-confidence.",
+    "extensions": {}
+  },
+  "keystones": [
+    {
+      "id": "ks-001",
+      "content": "Ada is a freelance data-visualization developer and science writer; most client work is dashboards for environmental nonprofits.",
+      "category": "identity",
+      "confidence": 1,
+      "importance": 0.9,
+      "source": "user_stated",
+      "status": "active",
+      "created_at": "2025-09-02T14:10:00Z",
+      "last_confirmed_at": "2026-01-10T08:30:00Z",
+      "extensions": {}
+    },
+    {
+      "id": "ks-002",
+      "content": "Ada is building 'Tidewatch', an open-source dashboard for community ocean-sensor networks, aiming for a public beta.",
+      "category": "objective",
+      "confidence": 1,
+      "importance": 1,
+      "source": "user_stated",
+      "status": "active",
+      "created_at": "2025-09-02T14:12:00Z",
+      "last_confirmed_at": "2026-01-12T09:00:00Z",
+      "extensions": {}
+    },
+    {
+      "id": "ks-003",
+      "content": "Prefers Svelte + D3 with small dependency footprints; avoids heavy frameworks.",
+      "category": "preference",
+      "confidence": 0.9,
+      "importance": 0.7,
+      "source": "inferred",
+      "status": "active",
+      "created_at": "2025-10-18T11:45:00Z",
+      "last_confirmed_at": "2025-12-20T16:00:00Z",
+      "extensions": {}
+    },
+    {
+      "id": "ks-004",
+      "content": "When given a dataset, Ada wants the AI to state its assumptions about the data before analyzing it.",
+      "category": "rule",
+      "confidence": 1,
+      "importance": 0.8,
+      "source": "user_stated",
+      "status": "active",
+      "created_at": "2025-11-05T10:20:00Z",
+      "last_confirmed_at": "2026-01-08T13:15:00Z",
+      "extensions": {}
+    },
+    {
+      "id": "ks-005",
+      "content": "Works about 25 focused hours a week and protects mornings for deep work; declines rush jobs.",
+      "category": "constraint",
+      "confidence": 0.85,
+      "importance": 0.7,
+      "source": "user_stated",
+      "status": "active",
+      "created_at": "2025-09-15T09:30:00Z",
+      "last_confirmed_at": "2025-12-01T09:30:00Z",
+      "extensions": {}
+    },
+    {
+      "id": "ks-006",
+      "content": "Collaborates with Dr. Okonkwo, a marine biologist who supplies sensor data and reviews domain accuracy.",
+      "category": "relationship",
+      "confidence": 1,
+      "importance": 0.6,
+      "source": "user_stated",
+      "status": "active",
+      "created_at": "2025-10-01T12:00:00Z",
+      "last_confirmed_at": "2025-12-18T12:00:00Z",
+      "extensions": {}
+    },
+    {
+      "id": "ks-007",
+      "content": "Left a marine-biology PhD to work in data visualization; writes a newsletter, 'Salt & Signal,' on ocean data.",
+      "category": "identity",
+      "confidence": 1,
+      "importance": 0.7,
+      "source": "user_stated",
+      "status": "active",
+      "created_at": "2025-09-02T14:20:00Z",
+      "last_confirmed_at": "2025-11-22T15:40:00Z",
+      "extensions": {}
+    }
+  ],
+  "timeline_events": [
+    { "id": "tl-001", "date": "2019", "summary": "Left a marine-biology PhD program to pursue data work.", "category": "milestone", "source": "user_stated", "confidence": 1, "extensions": {} },
+    { "id": "tl-002", "date": "2020-03", "summary": "Started freelancing in data visualization.", "category": "job", "source": "user_stated", "confidence": 1, "extensions": {} },
+    { "id": "tl-003", "date": "2021-08", "summary": "Launched the 'Salt & Signal' newsletter on ocean data.", "category": "publication", "source": "user_stated", "confidence": 1, "extensions": {} },
+    { "id": "tl-004", "date": "2023", "summary": "Delivered first paid dashboard for an environmental nonprofit.", "category": "milestone", "source": "user_stated", "confidence": 0.9, "extensions": {} },
+    { "id": "tl-005", "date": "2024-06", "summary": "Began building Tidewatch.", "category": "milestone", "source": "user_stated", "confidence": 1, "extensions": {} },
+    { "id": "tl-006", "date": "2025-11", "summary": "Tidewatch private alpha running against three community sensor networks.", "category": "milestone", "source": "user_stated", "confidence": 1, "extensions": {} }
+  ]
+}

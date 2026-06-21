@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-01-15T09:00:00Z",
+  "name": "Ada Lumen",
+  "profession": "Freelance data-visualization developer & science writer",
+  "primary_focus": "Building Tidewatch, an open-source dashboard for community ocean-sensor networks",
+  "summary": "Ada is a freelance data-visualization developer and science writer who came to the field from science (a partly-finished marine-biology PhD). Most paid work is dashboards for environmental nonprofits; the main personal project is Tidewatch, an open-source tool for community ocean-sensor data. She works in protected morning deep-work blocks, ships small, and tests against real datasets before generalizing.",
+  "domain_expertise": ["Data visualization (D3, Svelte)", "Oceanography fundamentals", "Technical & science writing", "Freelance client delivery"],
+  "values": ["Open-source by default", "Scientific rigor over hype", "Accessibility", "A calm, sustainable pace"],
+  "communication_style": "Concise; prefers concrete examples over abstraction; allergic to hedging.",
+  "working_style": "Protects mornings for deep work; ships small and often; validates against real data before generalizing.",
+  "tools_and_workflows": "VS Code, Svelte, D3.js, Python/pandas; Git-first; small dependency footprints.",
+  "how_interacts_with_ai": "Treats AI as a pair-programmer; wants assumptions stated and sources cited; dislikes filler and over-confidence.",
+  "extensions": {}
+}

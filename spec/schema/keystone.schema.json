@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portable-context-protocol.org/schema/v1/keystone.schema.json",
+  "title": "PCP keystone (v1)",
+  "description": "A single curated, user-affirmed claim about the person, with provenance for trust-weighting.",
+  "type": "object",
+  "required": ["id", "content"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string" },
+    "content": { "type": "string", "description": "The claim (1-2 sentences)." },
+    "category": {
+      "enum": ["identity", "preference", "rule", "objective", "constraint", "relationship", "glossary", "other"]
+    },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "importance": { "type": "number", "minimum": 0, "maximum": 1 },
+    "source": { "enum": ["user_stated", "inferred", "imported", "other"] },
+    "status": {
+      "enum": ["active", "superseded", "deleted"],
+      "description": "Record lifecycle ONLY -- not approval. Only user-affirmed keystones appear on the portable surface."
+    },
+    "sensitivity": { "enum": ["low", "medium", "high"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "last_confirmed_at": { "type": "string", "format": "date-time" },
+    "supersedes": { "type": "string", "description": "id of a keystone this one replaces" },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced custom fields. Readers MUST preserve unknown keys."
+    }
+  }
+}
