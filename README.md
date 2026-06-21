@@ -52,6 +52,14 @@ A reading AI is a *guest*, not an editor:
 - **Provenance travels with the data.** Every `keystone` carries `source` / `confidence` / `last_confirmed_at`, so a reader can trust-weight: a user-stated fact is not an AI-inferred guess.
 - **Auditable.** Implementations log who queried what.
 
+## Device registry (extension)
+
+Once you have *more than one* PCP store, you need a way for an agent to know they exist and query across them. The **device registry** is a small extension: a user-curated manifest (`~/.pcp/sources.json`) listing the PCP sources *you've* opted into on *your own* machine — so any agent can discover and query across them as one context layer, with no central broker.
+
+It's deliberately just a convention — usable by hand today, and seamless once apps register themselves and agents read it natively (the spec is honest about the gap between). Single-user, single-device, opt-in per source — **not** cross-person sharing.
+
+→ **[spec/registry-v1.md](spec/registry-v1.md)** · schema: **[registry.schema.json](spec/schema/registry.schema.json)** · example: **[sources.example.json](examples/sources.example.json)**
+
 ## Status & contributing
 
 v1 is a draft, and the vocabulary deliberately starts **small and stable** — the point is for the community to extend it. Propose fields and types via issues and PRs: the core stays minimal, extensions live in the `extensions` namespace, and widely-adopted extensions graduate into later versions. See **[CONTRIBUTING.md](CONTRIBUTING.md)**.
