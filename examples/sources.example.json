@@ -1,0 +1,40 @@
+{
+  "pcp_registry_version": "1.0",
+  "_note": "FICTIONAL example — one user's device registry of their OWN PCP sources. Paths/keys are illustrative. Shows all three adoption modes: first-party stdio, first-party http, and a community sidecar.",
+  "sources": [
+    {
+      "id": "memorandai",
+      "name": "Memorandai",
+      "kind": "knowledge-studio",
+      "description": "Local-first knowledge studio: curated keystones, timeline, memories, notebook.",
+      "transport": "stdio",
+      "command": "node",
+      "args": ["C:/Users/example/apps/memorandai/mcp-bridge-external/index.js"],
+      "env": { "MEMORANDAI_MCP_CLIENT_ID": "registry" },
+      "added_by": "user",
+      "extensions": {}
+    },
+    {
+      "id": "yap",
+      "name": "Yap",
+      "kind": "context-store",
+      "description": "Self-hosted navigable context store (spaces / bundles / items).",
+      "transport": "http",
+      "url": "http://localhost:8787/mcp",
+      "headers": { "Authorization": "Bearer yk_example_redacted" },
+      "added_by": "user",
+      "extensions": {}
+    },
+    {
+      "id": "cursor-sidecar",
+      "name": "Cursor (community sidecar)",
+      "kind": "sidecar",
+      "description": "Third-party bridge exposing Cursor's local chat history via pcp_* — reads Cursor's SQLite; fragile (no vendor support).",
+      "transport": "stdio",
+      "command": "node",
+      "args": ["C:/Users/example/tools/cursor-pcp-bridge/index.js"],
+      "added_by": "sidecar",
+      "extensions": {}
+    }
+  ]
+}

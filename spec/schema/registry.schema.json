@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portable-context-protocol.org/schema/v1/registry.schema.json",
+  "title": "PCP device registry (sources.json)",
+  "description": "A user-curated directory of the PCP context sources on one device. See spec/registry-v1.md.",
+  "type": "object",
+  "required": ["pcp_registry_version", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "pcp_registry_version": { "const": "1.0" },
+    "sources": { "type": "array", "items": { "$ref": "#/$defs/source" } },
+    "extensions": { "type": "object" }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["id", "name", "transport"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "description": "Stable local id for this source." },
+        "name": { "type": "string" },
+        "kind": { "type": "string", "description": "Freeform descriptor, e.g. 'knowledge-studio', 'context-store', 'sidecar'." },
+        "description": { "type": "string" },
+        "transport": { "enum": ["stdio", "http"] },
+        "command": { "type": "string", "description": "stdio: executable to launch the MCP server." },
+        "args": { "type": "array", "items": { "type": "string" } },
+        "env": { "type": "object", "additionalProperties": { "type": "string" } },
+        "url": { "type": "string", "description": "http: the MCP endpoint." },
+        "headers": { "type": "object", "additionalProperties": { "type": "string" } },
+        "added_by": { "enum": ["user", "app", "sidecar"] },
+        "extensions": { "type": "object" }
+      }
+    }
+  }
+}
