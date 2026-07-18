@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portable-context-protocol.org/schema/v1/search-result.schema.json",
+  "title": "PCP search_result (v1)",
+  "description": "A single ranked match from pcp_search, carrying the origin classification that lets a reader trust-weight heterogeneous content.",
+  "type": "object",
+  "required": ["id", "type", "origin", "snippet"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "type": "string", "description": "Store-native record type (e.g. keystone, conversation)." },
+    "origin": {
+      "enum": ["user_stated", "approved", "recorded", "imported", "generated", "inferred"],
+      "description": "Authority classification. Stores that cannot classify a record MUST default to 'generated' — under-claim, never over-claim."
+    },
+    "snippet": { "type": "string" },
+    "score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "timestamp": { "type": "string" },
+    "sensitivity": { "enum": ["low", "medium", "high"] },
+    "source_system": { "type": "string" },
+    "source_id": { "type": "string" },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced custom fields (reverse-DNS or vendor prefix). Readers MUST preserve unknown keys."
+    }
+  }
+}

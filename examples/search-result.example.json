@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "query": "preferred development workflow",
+  "count": 3,
+  "filters_applied": {
+    "limit": 10,
+    "types": null,
+    "exclude_types": null,
+    "current_only": true,
+    "include_sensitive": false,
+    "min_score": null,
+    "relevance_scores": "present",
+    "sensitivity_filtering": "where_classified_v1"
+  },
+  "results": [
+    {
+      "id": "ks_a1b2c3",
+      "type": "keystone",
+      "origin": "approved",
+      "snippet": "Works Windows-first; prefers lean, verifiable implementations over speculative abstraction.",
+      "score": 0.91,
+      "timestamp": "2026-07-02T10:15:00Z",
+      "sensitivity": "low",
+      "source_system": "memorandai",
+      "source_id": "ks_a1b2c3"
+    },
+    {
+      "id": "mem_d4e5f6",
+      "type": "conversation",
+      "origin": "recorded",
+      "snippet": "User: let's keep the build script simple — one command, no flags… Assistant: agreed, wiring it as npm run …",
+      "score": 0.74,
+      "timestamp": "2026-05-18T20:41:00Z",
+      "source_system": "memorandai",
+      "source_id": "mem_d4e5f6"
+    },
+    {
+      "id": "memo_g7h8i9",
+      "type": "summary",
+      "origin": "generated",
+      "snippet": "Weekly consolidation: the person iterated on the packaging pipeline and standardized on a single pack command…",
+      "score": 0.62,
+      "timestamp": "2026-05-25T02:00:00Z",
+      "source_system": "memorandai",
+      "source_id": "memo_g7h8i9"
+    }
+  ]
+}
