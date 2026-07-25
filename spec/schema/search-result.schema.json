@@ -16,6 +16,10 @@
     "snippet": { "type": "string" },
     "score": { "type": "number", "minimum": 0, "maximum": 1 },
     "timestamp": { "type": "string" },
+    "stale": {
+      "type": "boolean",
+      "description": "True where the underlying record is past its stale_after date. Stale results SHOULD be labeled and returned, not dropped. See spec 3.2.2 and 4.2."
+    },
     "sensitivity": { "enum": ["low", "medium", "high"] },
     "source_system": { "type": "string" },
     "source_id": { "type": "string" },

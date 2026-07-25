@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "query": "preferred development workflow",
-  "count": 3,
+  "count": 4,
   "filters_applied": {
     "limit": 10,
     "types": null,
@@ -9,8 +9,10 @@
     "current_only": true,
     "include_sensitive": false,
     "min_score": null,
+    "exclude_stale": false,
     "relevance_scores": "present",
-    "sensitivity_filtering": "where_classified_v1"
+    "sensitivity_filtering": "where_classified_v1",
+    "stale_labeling": "where_dated_v1"
   },
   "results": [
     {
@@ -43,6 +45,18 @@
       "timestamp": "2026-05-25T02:00:00Z",
       "source_system": "memorandai",
       "source_id": "memo_g7h8i9"
+    },
+    {
+      "id": "ks_j0k1l2",
+      "type": "keystone",
+      "origin": "approved",
+      "snippet": "Uses Cursor as the primary editor for day-to-day frontend work.",
+      "score": 0.58,
+      "timestamp": "2025-11-30T09:00:00Z",
+      "stale": true,
+      "sensitivity": "low",
+      "source_system": "memorandai",
+      "source_id": "ks_j0k1l2"
     }
   ]
 }

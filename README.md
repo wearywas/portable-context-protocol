@@ -2,7 +2,7 @@
 
 **An open standard for portable, user-owned personal context that any AI can read.**
 
-> Status: **v1 (draft)** · License: [MIT](LICENSE) · Reference implementation: [Memorandai](https://memorandai.com)
+> Status: **v1.2 (draft)** · License: [MIT](LICENSE) · Reference implementation: [Memorandai](https://memorandai.com)
 
 ---
 
@@ -36,11 +36,12 @@ PCP context travels at three levels of fidelity, all sharing one vocabulary:
 
 ## The core vocabulary (v1)
 
-Three types. Each carries an `extensions` object so vendors and the community can add fields **without forking the core**.
+Four types. Each carries an `extensions` object so vendors and the community can add fields **without forking the core**.
 
 - **`profile`** — the distilled "who you are": identity, focus, working style, values, expertise.
-- **`keystone`** — a single curated, high-signal claim about you, carrying provenance (`source`, `confidence`, `last_confirmed_at`) so a reading AI can weigh how much to trust it.
+- **`keystone`** — a single curated, high-signal claim about you, carrying provenance (`source`, `confidence`, `last_confirmed_at`, and *who* authored vs. affirmed it) so a reading AI can weigh how much to trust it.
 - **`timeline_event`** — a dated life event (jobs, moves, milestones); partial dates allowed.
+- **`search_result`** — a ranked match from a live query, carrying an origin classification so a reader can trust-weight material it didn't curate.
 
 Full definitions: **[spec/pcp-v1.md](spec/pcp-v1.md)** · JSON Schemas: **[spec/schema/](spec/schema)** · Worked examples (a fully **fictional** persona — no real data): **[examples/](examples)**.
 
@@ -50,6 +51,8 @@ A reading AI is a *guest*, not an editor:
 
 - **Read-only at the boundary.** The query profile exposes no writes — an external AI can read your context but never silently mutate it.
 - **Provenance travels with the data.** Every `keystone` carries `source` / `confidence` / `last_confirmed_at`, so a reader can trust-weight: a user-stated fact is not an AI-inferred guess.
+- **Authorship is not affirmation.** `generated_by` and `last_confirmed_by` name *who* wrote a claim and *who* last stood behind it. A claim you affirmed outranks one an agent merely re-confirmed.
+- **Facts can expire.** `stale_after` is an absolute date after which a claim should be treated as dated — so a tool preference from last year stops being served as current fact. Stale context is labeled, not hidden: dated isn't the same as false.
 - **Auditable.** Implementations log who queried what.
 
 ## Device registry (extension)
@@ -59,6 +62,14 @@ Once you have *more than one* PCP store, you need a way for an agent to know the
 It's deliberately just a convention — usable by hand today, and seamless once apps register themselves and agents read it natively (the spec is honest about the gap between). Single-user, single-device, opt-in per source — **not** cross-person sharing.
 
 → **[spec/registry-v1.md](spec/registry-v1.md)** · schema: **[registry.schema.json](spec/schema/registry.schema.json)** · example: **[sources.example.json](examples/sources.example.json)**
+
+## Relationship to other formats
+
+**[Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf) (OKF)** — Google Cloud's vendor-neutral format for *organizational* knowledge (table schemas, metrics, runbooks) as markdown bundles. PCP and OKF share a thesis and split the scope: OKF describes knowledge about **assets**, PCP describes context about **a person**, and OKF puts querying and serving explicitly out of scope where PCP specifies them.
+
+They're complementary, and PCP treats OKF as a peer. Where the semantics genuinely coincide, PCP reuses OKF's vocabulary rather than inventing a parallel one — the actor convention (`human:<id>` / `<producer>/<version>` / `process:<id>`) and absolute-date staleness are both adopted from it.
+
+The line that matters: **a person is not a data asset.** Consent, sensitivity, and an auditable record of who read what are load-bearing for personal context and absent from a catalog format — which is why PCP defines a serving contract where OKF stops at the file. Details: [Appendix B](spec/pcp-v1.md#appendix-b-informative-relationship-to-adjacent-formats).
 
 ## Status & contributing
 

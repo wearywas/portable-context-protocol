@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "kind": "pcp.full-archive",
   "generated_at": "2026-01-15T09:00:00Z",
-  "note": "FICTIONAL example persona (Ada Lumen). Illustrates PCP structure with no real personal data.",
+  "note": "FICTIONAL example persona (Ada Lumen). Illustrates PCP structure with no real personal data. Keystones deliberately vary in completeness to show that provenance fields are optional: ks-001/002 are human-affirmed, ks-003 was agent-drafted and human-affirmed, ks-005 is human-authored but machine-reaffirmed AND past its stale_after (still served, per spec 3.2.2), and ks-006/007 carry no actor fields at all.",
   "profile": {
     "schema_version": "1.0",
     "generated_at": "2026-01-15T09:00:00Z",
@@ -28,7 +28,9 @@
       "source": "user_stated",
       "status": "active",
       "created_at": "2025-09-02T14:10:00Z",
+      "generated_by": "human:ada",
       "last_confirmed_at": "2026-01-10T08:30:00Z",
+      "last_confirmed_by": "human:ada",
       "extensions": {}
     },
     {
@@ -40,7 +42,10 @@
       "source": "user_stated",
       "status": "active",
       "created_at": "2025-09-02T14:12:00Z",
+      "generated_by": "human:ada",
       "last_confirmed_at": "2026-01-12T09:00:00Z",
+      "last_confirmed_by": "human:ada",
+      "stale_after": "2026-09-30",
       "extensions": {}
     },
     {
@@ -52,7 +57,10 @@
       "source": "inferred",
       "status": "active",
       "created_at": "2025-10-18T11:45:00Z",
+      "generated_by": "memorandai/claude-opus-5",
       "last_confirmed_at": "2025-12-20T16:00:00Z",
+      "last_confirmed_by": "human:ada",
+      "stale_after": "2026-06-30",
       "extensions": {}
     },
     {
@@ -64,7 +72,9 @@
       "source": "user_stated",
       "status": "active",
       "created_at": "2025-11-05T10:20:00Z",
+      "generated_by": "human:ada",
       "last_confirmed_at": "2026-01-08T13:15:00Z",
+      "last_confirmed_by": "human:ada",
       "extensions": {}
     },
     {
@@ -76,7 +86,10 @@
       "source": "user_stated",
       "status": "active",
       "created_at": "2025-09-15T09:30:00Z",
+      "generated_by": "human:ada",
       "last_confirmed_at": "2025-12-01T09:30:00Z",
+      "last_confirmed_by": "memorandai/claude-opus-5",
+      "stale_after": "2026-01-01",
       "extensions": {}
     },
     {

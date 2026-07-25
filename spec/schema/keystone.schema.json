@@ -21,7 +21,23 @@
     },
     "sensitivity": { "enum": ["low", "medium", "high"] },
     "created_at": { "type": "string", "format": "date-time" },
+    "generated_by": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Actor who authored the record: 'human:<id>', '<producer>/<version>', or 'process:<id>'. See spec 3.2.1."
+    },
     "last_confirmed_at": { "type": "string", "format": "date-time" },
+    "last_confirmed_by": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Actor who last affirmed the claim, same forms as generated_by. A 'human:' actor outranks an agent or process; readers derive the tier and MUST NOT discard unattributed keystones. See spec 3.2.1."
+    },
+    "stale_after": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "Absolute date (YYYY-MM-DD) on or after which the claim should be treated as stale. Advisory, not lifecycle -- a stale keystone is still served, labeled. See spec 3.2.2."
+    },
     "supersedes": { "type": "string", "description": "id of a keystone this one replaces" },
     "extensions": {
       "type": "object",
